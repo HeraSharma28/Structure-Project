@@ -3,7 +3,6 @@
 
 #include <stdio.h>
 
-// Define the Node structure to represent a graph node
 struct Node {
     int nodeid;
     int adjcount;
@@ -45,7 +44,7 @@ void addAdjacent(struct Node *p, int nid1, int nid2, int cost, int count) {
         if (p[i].nodeid == nid1) {
             int c = p[i].adjcount;
 
-            // Add the adjacent node and its cost
+            // Adding the adjacent node and its cost
             p[i].adjs[c] = nid2;
             p[i].costs[c] = cost;
             p[i].adjcount = c + 1;
@@ -72,11 +71,11 @@ int added(int *list, int lcount, int nid) {
 void findpath(struct Node *p, int count, int start, int end, int *list, int *clist, int lcount, int *visa) {
     int index = 0, i = 0, arr[1000], pathNode_c = 0;
 
-    // Check if the list contains the end node
+    // Checking if the list contains the end node
     if (list[lcount - 1] == end) {
         printf("\n");
 
-        // Print the path and calculate total cost
+        // Printing the path and calculate total cost
         int tcost = 0;
         for (i = 0; i < lcount; i++) {
             printf("%d ", list[i]);
@@ -87,7 +86,7 @@ void findpath(struct Node *p, int count, int start, int end, int *list, int *cli
 
         int compare_c = 0;
 
-        // Check if the path contains at most num_visa visa nodes
+        // Checking if the path contains at most num_visa visa nodes
         if (pathNode_c - 1 <= num_visa) {
             for (int i = 1; i < pathNode_c; i++) {
                 for (int j = 0; j < num_visa; j++) {
